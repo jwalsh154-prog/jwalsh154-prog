@@ -6,6 +6,7 @@ data class UserEvent(
 
 val date: CalendarDay,
 val title: String,
-    val color: Int
+    val color: Int,
+    var isCompleted: Boolean = false
 
 )

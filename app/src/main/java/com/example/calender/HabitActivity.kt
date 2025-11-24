@@ -8,6 +8,7 @@ import androidx.compose.runtime.State
 import android.widget.LinearLayout
 import android.view.View
 import androidx.appcompat.widget.Toolbar
+import android.graphics.Color
 
 
 class HabitActivity : AppCompatActivity() {
@@ -34,6 +35,9 @@ class HabitActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        toolbar.navigationIcon?.setTint(Color.BLACK)
     }
 
 
