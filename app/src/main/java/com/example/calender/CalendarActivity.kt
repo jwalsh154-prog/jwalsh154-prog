@@ -2,7 +2,6 @@ package com.example.calender
 
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,8 +9,6 @@ import android.widget.Toast
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.compose.material3.CheckboxColors
-import androidx.compose.material3.CheckboxDefaults.colors
 import androidx.core.content.edit
 import com.example.calender.ui.theme.EventDisplayDecor
 import com.example.calender.ui.theme.HabitData
@@ -20,7 +17,7 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class MainActivity :  AppCompatActivity() {
+class CalendarActivity :  AppCompatActivity() {
     private val userEvents = mutableListOf<UserEvent>()
 
 private lateinit var calendarView: MaterialCalendarView
@@ -57,21 +54,34 @@ private lateinit var calendarView: MaterialCalendarView
 
             if (eventsForDates.isNotEmpty()) {
                 val eventTitle = eventsForDates.map { it.title } .toTypedArray()
+                val checkedItems = eventsForDates.map {it.isCompleted} . toBooleanArray()
+
                 android.app.AlertDialog.Builder(this)
                     .setTitle("Events on ${date.month }/${date.day}/${date.year}")
-                    .setItems(eventTitle){_, index ->
-                        val eventToDelete = eventsForDates[index]
-                        userEvents.remove(eventToDelete)
+                    .setMultiChoiceItems(eventTitle, checkedItems){_, which, isChecked ->
+                        eventsForDates[which].isCompleted = isChecked
                         saveEvent()
                         refreshDec()
-                        Toast.makeText(this, "Deleted: ${eventToDelete.title}", Toast.LENGTH_SHORT).show()
-
-
                     }
                     .setPositiveButton("Add More") { dialog, _ -> dialog.dismiss()
                         showAddDate(date)
                     }
                     .setNegativeButton("Ok"){dialog, _ -> dialog.dismiss() }
+                    .setNeutralButton("Delete"){dialog, _ ->
+
+                        val eventTitle = eventsForDates.map { it.title } .toTypedArray()
+                        android.app.AlertDialog.Builder(this)
+                            .setTitle("Select event to delete")
+                            .setItems(eventTitle) { _, index ->
+                                val eventToDelete = eventsForDates[index]
+                                userEvents.remove(eventToDelete)
+                                saveEvent()
+                                refreshDec()
+                                Toast.makeText(this, "Deleted: ${eventToDelete.title}", Toast.LENGTH_SHORT).show()
+                            }
+                            .show()
+
+                    }
                     .show()
             } else {
                 showAddDate(date)
@@ -128,8 +138,7 @@ private lateinit var calendarView: MaterialCalendarView
                         dialog.dismiss()
 
                     }
-                    .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
-                    .show()
+                    .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }.show()
 
             }
             .setNegativeButton("Skip Habit") { _, _ ->
