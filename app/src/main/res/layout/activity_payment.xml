@@ -7,41 +7,33 @@
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/tvDashboardTitle"
+        android:id="@+id/tvPaymentTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="New Beginnings Dashboard"
+        android:text="New Beginnings Premium"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-    <Button
-        android:id="@+id/btnGoToPayment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Open Payment Screen"
-        app:layout_constraintTop_toBottomOf="@id/tvDashboardTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-    <Button
-        android:id="@+id/btnSendReminder"
+    <TextView
+        android:id="@+id/tvPaymentDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Send Test Reminder"
-        app:layout_constraintTop_toBottomOf="@id/btnGoToPayment"
+        android:text="Upgrade to unlock unlimited habits, detailed progress tracking, and priority reminders.
+This is a prototype payment screen. No real charges will be made."
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvPaymentTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
     <Button
-        android:id="@+id/btnGoToHelp"
+        android:id="@+id/btnConfirmPayment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Help"
-        app:layout_constraintTop_toBottomOf="@id/btnSendReminder"
+        android:layout_marginTop="32dp"
+        android:text="Confirm Payment"
+        app:layout_constraintTop_toBottomOf="@id/tvPaymentDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
