@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "567985003286",
+    "project_id": "ne8j-e2b52",
+    "storage_bucket": "ne8j-e2b52.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567985003286:android:b8cec3dda90ca39c294e37",
+        "android_client_info": {
+          "package_name": "com.example.calender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567985003286-80ojkq922cme0utmvlchnv2ot3mbv07g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.calender",
+            "certificate_hash": "f22117851c1a94744eb888525313332ea3eafbc2"
+          }
+        },
+        {
+          "client_id": "567985003286-022k4dv49fvm2oieidc431ocri5fpg8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6PGFupbQH0hMHVGz036Oec_3I7-V3xlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567985003286-022k4dv49fvm2oieidc431ocri5fpg8p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
